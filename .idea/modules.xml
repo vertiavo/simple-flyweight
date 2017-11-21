@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/chess-decorator.iml" filepath="$PROJECT_DIR$/chess-decorator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chess-flyweight.iml" filepath="$PROJECT_DIR$/chess-flyweight.iml" />
     </modules>
   </component>
 </project>

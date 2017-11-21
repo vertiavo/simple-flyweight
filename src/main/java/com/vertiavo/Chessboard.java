@@ -33,6 +33,8 @@ public class Chessboard extends JPanel {
     private JButton undo;
     private JButton redo;
     private AffineTransform dragTransform;
+    private int originX;
+    private int originY;
 
     Chessboard() {
 
@@ -51,7 +53,6 @@ public class Chessboard extends JPanel {
         board.put(new Point(5, 6), new TransformDecorator(PieceImpl.getPiece(0), drawTransform));
         board.put(new Point(6, 5), new TransformDecorator(PieceImpl.getPiece(0), drawTransform));
         board.put(new Point(7, 4), new TransformDecorator(PieceImpl.getPiece(0), drawTransform));
-
 
         image = new ImageIcon("src/main/resources/board3.png").getImage();
         setPreferredSize(new Dimension(image.getWidth(null), image.getHeight(null)));
@@ -93,7 +94,7 @@ public class Chessboard extends JPanel {
             pc.draw((Graphics2D) g, pt.x, pt.y);
         }
         if (mouse != null && dragged != null) {
-            dragged.draw((Graphics2D) g, dragged.getX(), dragged.getY());
+            dragged.draw((Graphics2D) g, originX, originY);
         }
     }
 
@@ -107,6 +108,8 @@ public class Chessboard extends JPanel {
 
     private Piece take(int x, int y) {
         repaint();
+        originX = x;
+        originY = y;
         return board.remove(new Point(x, y));
     }
 
